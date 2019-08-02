@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="" />
+    <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test/in_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,9 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
@@ -23,14 +30,17 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1OjFa9pV4HXemVfDd13VwtzIzq1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -49,35 +59,45 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.Test_v in fmt_test.go">
-    <configuration name="Test_ in reflect_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.Test_json_unmashal in json_test.go">
+    <configuration name="Test_f in in_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/test/reflect_test.go" />
-      <pattern value="^Test_$" />
+      <filePath value="$PROJECT_DIR$/test/in_test.go" />
+      <pattern value="^Test_f$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_TypeOf in reflect_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_in in in_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/test/reflect_test.go" />
-      <pattern value="^Test_TypeOf$" />
+      <filePath value="$PROJECT_DIR$/test/in_test.go" />
+      <pattern value="^Test_in$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_TypeOf_pointer in reflect_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_json_unmashal in json_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/test/reflect_test.go" />
-      <pattern value="^Test_TypeOf_pointer$" />
+      <filePath value="$PROJECT_DIR$/test/json_test.go" />
+      <pattern value="^Test_json_unmashal$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_strings_replacef in in_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/test/in_test.go" />
+      <pattern value="^Test_strings_replacef$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_v in fmt_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -92,14 +112,28 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.Test_json_unmashal in json_test.go" />
+        <item itemvalue="Go Test.Test_strings_replacef in in_test.go" />
+        <item itemvalue="Go Test.Test_f in in_test.go" />
+        <item itemvalue="Go Test.Test_in in in_test.go" />
         <item itemvalue="Go Test.Test_v in fmt_test.go" />
-        <item itemvalue="Go Test.Test_TypeOf_pointer in reflect_test.go" />
-        <item itemvalue="Go Test.Test_TypeOf in reflect_test.go" />
-        <item itemvalue="Go Test.Test_ in reflect_test.go" />
       </list>
     </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
