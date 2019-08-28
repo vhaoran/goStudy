@@ -60,6 +60,7 @@ func removeHeadNumber(s string) string {
 	return s[i+len("||"):]
 }
 
+
 func Test_remove(t *testing.T) {
 	s := "z中华axy人back民c共d和e国"
 	for i,v := range s{

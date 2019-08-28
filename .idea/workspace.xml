@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A/AAAAA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A/AAAAA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im/redTest/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im/redTest/redis_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/String_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/c_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/empty_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/int_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/parsefloat_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/slice_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gostudy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gostudy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/g/g.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/g/gStr.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/g_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/lua/a.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/time_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/x_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chat/Library/Inner/Nodes/yemq/mqBundle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Library/Inner/Nodes/yemq/mqBundle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/im/redTest/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im/redTest/redis_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chat/Core/Handlers/api/h_bet_cancel.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Handlers/api/h_bet_cancel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/i_bet_cancel.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/i_bet_cancel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/redis_bet.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/redis_bet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chat/Core/router/router_top3.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/router/router_top3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/c_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/c_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="Lua Script" />
       </list>
     </option>
   </component>
@@ -72,7 +68,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -91,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.Test_remove in goStudy/test">
+  <component name="RunManager" selected="Go Test.Test_aaa in goStudy/test">
     <configuration name="Test_aaa in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
@@ -103,7 +99,7 @@
       <pattern value="^Test_aaa$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_map in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_isZeroAll in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
@@ -111,10 +107,10 @@
       <package value="goStudy/test" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_map$" />
+      <pattern value="^Test_isZeroAll$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_remove in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_is_zero in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
@@ -122,10 +118,10 @@
       <package value="goStudy/test" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_remove$" />
+      <pattern value="^Test_is_zero$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_slice in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_map_r in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
@@ -133,27 +129,26 @@
       <package value="goStudy/test" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_slice$" />
+      <pattern value="^Test_map_r$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_x_parsetint in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="a.lua" type="#com.sylvanaar.idea.Lua.run.LuaConfigurationType" factoryName="Lua Script" temporary="true">
       <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="goStudy/test" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_x_parsetint$" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="ALTERNATE_INTERPRETER" value="false" />
+      <option name="SCRIPT_NAME" value="test/lua/a.lua" />
+      <option name="PARAMETERS" value="aaa bbbb cccc" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_remove in goStudy/test" />
+        <item itemvalue="Go Test.Test_isZeroAll in goStudy/test" />
         <item itemvalue="Go Test.Test_aaa in goStudy/test" />
-        <item itemvalue="Go Test.Test_map in goStudy/test" />
-        <item itemvalue="Go Test.Test_slice in goStudy/test" />
-        <item itemvalue="Go Test.Test_x_parsetint in goStudy/test" />
+        <item itemvalue="Go Test.Test_is_zero in goStudy/test" />
+        <item itemvalue="Go Test.Test_map_r in goStudy/test" />
       </list>
     </recent_temporary>
   </component>
@@ -178,5 +173,16 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/lib/g/g.go</url>
+          <line>32</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
