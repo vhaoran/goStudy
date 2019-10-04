@@ -5,13 +5,11 @@ import (
 	"testing"
 )
 
-
-type AAA struct{
-	ID int
+type AAA struct {
+	ID   int
 	Name string
-	Age int
+	Age  int
 }
-
 
 func Test_v(t *testing.T) {
 	a := AAA{
@@ -21,9 +19,9 @@ func Test_v(t *testing.T) {
 	}
 
 	fmt.Println("------ +v -----------")
-	fmt.Println(fmt.Sprintf("%+v",a))
+	fmt.Println(fmt.Sprintf("%+v", a))
 	fmt.Println("----- #v ------------")
-	fmt.Println(fmt.Sprintf("%#v",a))
+	fmt.Println(fmt.Sprintf("%#v", a))
 	fmt.Println("-----------v------")
-	fmt.Println(fmt.Sprintf("%v",a))
+	fmt.Println(fmt.Sprintf("%v", a))
 }

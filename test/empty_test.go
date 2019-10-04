@@ -30,14 +30,13 @@ func IsEmpty(a interface{}) bool {
 
 	case reflect.String:
 		{
-			fmt.Println("v.string",v.String())
+			fmt.Println("v.string", v.String())
 			return len(v.String()) <= 0
 		}
 	}
 
 	return false
 }
-
 
 func Test_empty(t *testing.T) {
 	var p *string

@@ -41,5 +41,4 @@ func Test_TypeOf_pointer(t *testing.T) {
 
 func Test_(t *testing.T) {
 
-
 }

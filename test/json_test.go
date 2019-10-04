@@ -6,15 +6,14 @@ import (
 	"testing"
 )
 
-type Msg struct{
-	Type int64
+type Msg struct {
+	Type    int64
 	Content interface{}
 }
-type ContentTest struct{
-	ID int64
+type ContentTest struct {
+	ID   int64
 	Text string
 }
-
 
 func Test_json_unmashal(t *testing.T) {
 	msg := &Msg{
@@ -25,26 +24,22 @@ func Test_json_unmashal(t *testing.T) {
 		},
 	}
 
-	x := fmt.Sprintf("aaaaa %p",msg)
+	x := fmt.Sprintf("aaaaa %p", msg)
 	fmt.Println(x)
-	x = fmt.Sprintf("bbb %+v",msg)
+	x = fmt.Sprintf("bbb %+v", msg)
 	fmt.Println(x)
-
 
 	fmt.Println("----------VVV-------")
 
-	s,_ := json.Marshal(msg)
-	fmt.Println("s:",string(s))
+	s, _ := json.Marshal(msg)
+	fmt.Println("s:", string(s))
 	fmt.Println("-----------------")
 	//-------- -----------------------------
 	msg2 := new(Msg)
-	json.Unmarshal(s,msg2)
+	json.Unmarshal(s, msg2)
 
-	fmt.Println(fmt.Sprintf("msg2 %v",*msg2))
-	fmt.Println(fmt.Sprintf("msg2 %+v",*msg2))
-	fmt.Println(fmt.Sprintf("msg2 %#v",*msg2))
-
+	fmt.Println(fmt.Sprintf("msg2 %v", *msg2))
+	fmt.Println(fmt.Sprintf("msg2 %+v", *msg2))
+	fmt.Println(fmt.Sprintf("msg2 %#v", *msg2))
 
 }
-
-

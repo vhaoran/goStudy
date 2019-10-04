@@ -9,24 +9,26 @@ const (
 	constZERO = 0.00000000001
 )
 
+//new
 func IsZeroAll(intOrFloatOrPtr ...interface{}) bool {
-	for _,v := range intOrFloatOrPtr{
-		if !IsZero(v){
+	for _, v := range intOrFloatOrPtr {
+		if !IsZero(v) {
 			return false
 		}
 	}
 	return true
 }
-
+//new
 func IsZeroOr(intOrFloatOrPtr ...interface{}) bool {
-	for _,v := range intOrFloatOrPtr{
-		if IsZero(v){
+	for _, v := range intOrFloatOrPtr {
+		if IsZero(v) {
 			return true
 		}
 	}
 	return false
 }
 
+//new
 func IsZero(intOrFloatOrPtr interface{}) bool {
 	val := reflect.Indirect(reflect.ValueOf(intOrFloatOrPtr))
 

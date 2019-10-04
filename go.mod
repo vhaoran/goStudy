@@ -21,6 +21,7 @@ require (
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
 	github.com/json-iterator/go v1.1.7
 	github.com/klaidliadon/next v0.0.0-20170704090259-10c2cb236a08
+	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/echo/v4 v4.1.6
 	github.com/labstack/gommon v0.2.9
 	github.com/leodido/go-urn v1.1.0 // indirect
@@ -30,6 +31,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/mojocn/base64Captcha v0.0.0-20190801020520-752b1cd608b2
 	github.com/panjf2000/ants v1.1.0
+	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pkg/errors v0.8.2-0.20190227000051-27936f6d90f9
 	github.com/robfig/cron v1.1.1-0.20190616124356-61d93e07d1be
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b

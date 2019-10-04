@@ -2,20 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/g/g.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/g/gStr.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/g_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/lua/a.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/time_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/x_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/g/gSlice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/g/g_dump.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/g/g_nil.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/g_inSline_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sleep_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webflux/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im/redTest/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im/redTest/redis_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chat/Core/Handlers/api/h_bet_cancel.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Handlers/api/h_bet_cancel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/i_bet_cancel.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/i_bet_cancel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/redis_bet.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/Serv/yserv/redis_bet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chat/Core/router/router_top3.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Core/router/router_top3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/g/g.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/g/g.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/g/gStr.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/g/gStr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chat/Library/Inner/Sources/common/g/gold.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/chat/Library/Inner/Sources/common/g/gold.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/c_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/c_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/empty_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/empty_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fmt_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/fmt_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/g_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/g_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/in_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/in_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/int_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/int_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/parsefloat_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/parsefloat_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/reflect_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/reflect_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/slice_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/slice_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/time_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/time_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/x_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,14 +38,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Lua Script" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/chat" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -64,14 +77,17 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/chat/Core/model" />
       <recent name="$PROJECT_DIR$/im/redTest" />
     </key>
   </component>
@@ -87,8 +103,41 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.Test_aaa in goStudy/test">
-    <configuration name="Test_aaa in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.Test_send_me_test in chat/Core/Serv/yserv/mytest">
+    <configuration name="Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="chat/Core/Serv/yserv/mytest" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_IMsgHistory_prior_blockID$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_MsgHistory_GetBlockID in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="chat/Core/Serv/yserv/mytest" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_MsgHistory_GetBlockID$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_add_fake_msg_history in chat/Core/Serv/yserv/mytest/testBet" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/testBet" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="chat/Core/Serv/yserv/mytest/testBet" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_add_fake_msg_history$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_dump_array_str in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test" />
       <framework value="gotest" />
@@ -96,59 +145,27 @@
       <package value="goStudy/test" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_aaa$" />
+      <pattern value="^Test_dump_array_str$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_isZeroAll in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_send_me_test in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/test" />
+      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="goStudy/test" />
+      <package value="chat/Core/Serv/yserv/mytest" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_isZeroAll$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_is_zero in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="goStudy/test" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_is_zero$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_map_r in goStudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="goStudy/test" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_map_r$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="a.lua" type="#com.sylvanaar.idea.Lua.run.LuaConfigurationType" factoryName="Lua Script" temporary="true">
-      <module name="gostudy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="ALTERNATE_INTERPRETER" value="false" />
-      <option name="SCRIPT_NAME" value="test/lua/a.lua" />
-      <option name="PARAMETERS" value="aaa bbbb cccc" />
+      <pattern value="^Test_send_me_test$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_isZeroAll in goStudy/test" />
-        <item itemvalue="Go Test.Test_aaa in goStudy/test" />
-        <item itemvalue="Go Test.Test_is_zero in goStudy/test" />
-        <item itemvalue="Go Test.Test_map_r in goStudy/test" />
+        <item itemvalue="Go Test.Test_send_me_test in chat/Core/Serv/yserv/mytest" />
+        <item itemvalue="Go Test.Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" />
+        <item itemvalue="Go Test.Test_add_fake_msg_history in chat/Core/Serv/yserv/mytest/testBet" />
+        <item itemvalue="Go Test.Test_MsgHistory_GetBlockID in chat/Core/Serv/yserv/mytest" />
+        <item itemvalue="Go Test.Test_dump_array_str in goStudy/test" />
       </list>
     </recent_temporary>
   </component>
@@ -179,8 +196,63 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/lib/g/g.go</url>
-          <line>32</line>
+          <line>34</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/a_func_test.go</url>
+          <line>68</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/IRoomPrivateMsg.go</url>
+          <line>25</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/testBet/add_point_test.go</url>
+          <line>110</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/fly_test.go</url>
+          <line>21</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/a_func_test.go</url>
+          <line>201</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/IMsgHistoryBlock.go</url>
+          <line>79</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/testBet/bet_test.go</url>
+          <line>206</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/testBet/bet_test.go</url>
+          <line>204</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/chat/Core/model/msg_history.go</url>
+          <line>74</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/lib/g/g_dump.go</url>
+          <line>80</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/lib/g/g_dump.go</url>
+          <line>18</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
