@@ -18,6 +18,7 @@ func IsZeroAll(intOrFloatOrPtr ...interface{}) bool {
 	}
 	return true
 }
+
 //new
 func IsZeroOr(intOrFloatOrPtr ...interface{}) bool {
 	for _, v := range intOrFloatOrPtr {

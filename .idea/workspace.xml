@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/main/main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rediscluster/redis_cluster_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/String_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/String_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/g/g.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/g/g.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/c_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/c_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/com_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/empty_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/empty_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fmt_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/fmt_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/g_inSline_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/g_inSline_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/g_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/g_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/in_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/in_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/int_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/int_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/json_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/parsefloat_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/parsefloat_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/reflect_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/reflect_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/sleep_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/sleep_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/slice_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/slice_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/time_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/time_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/x_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/x_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +67,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoProjectSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -97,7 +87,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.Test_slice in gostudy/test (1)">
+  <component name="RunManager" selected="Go Build.go build goStudy/main">
+    <configuration name="go build goStudy/main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main/main.go" />
+      <package value="goStudy/main" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest" />
@@ -107,17 +106,6 @@
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
       <pattern value="^Test_IMsgHistory_prior_blockID$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_add_fake_msg_history in chat/Core/Serv/yserv/mytest/testBet" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest/testBet" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="chat/Core/Serv/yserv/mytest/testBet" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_add_fake_msg_history$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_send_me_test in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -155,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build goStudy/main" />
         <item itemvalue="Go Test.Test_slice in gostudy/test (1)" />
         <item itemvalue="Go Test.Test_slice in gostudy/test" />
         <item itemvalue="Go Test.Test_send_me_test in chat/Core/Serv/yserv/mytest" />
         <item itemvalue="Go Test.Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" />
-        <item itemvalue="Go Test.Test_add_fake_msg_history in chat/Core/Serv/yserv/mytest/testBet" />
       </list>
     </recent_temporary>
   </component>
@@ -181,6 +169,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/chat" />
+    </ignored-roots>
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -190,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/lib/g/g.go</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">

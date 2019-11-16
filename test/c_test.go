@@ -189,11 +189,9 @@ func Test_dump_nil(t *testing.T) {
 	fmt.Println(2 / 3)
 }
 
-
 func Test_div_zero_recover(t *testing.T) {
 	divideByZero()
 }
-
 
 func divideByZero() {
 	// Use this deferred function to handle errors.
@@ -211,8 +209,6 @@ func divideByZero() {
 	dog := 10 / cat
 	fmt.Println(dog)
 }
-
-
 
 func Test_slice_new(t *testing.T) {
 	type A struct {
@@ -238,17 +234,13 @@ func Test_slice_new(t *testing.T) {
 		l = append(l, a)
 	}
 
-
-
-	for _,v := range l{
-	  fmt.Println(*v)
-	}
-
-	fmt.Println("-----------")
-	for _,v := range l1{
+	for _, v := range l {
 		fmt.Println(*v)
 	}
 
-
+	fmt.Println("-----------")
+	for _, v := range l1 {
+		fmt.Println(*v)
+	}
 
 }
