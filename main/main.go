@@ -16,13 +16,13 @@ func ExampleNewClusterClient() {
 	// See http://redis.io/topics/cluster-tutorial
 	// how to setup Redis Cluster.
 	cnt := redis.NewClusterClient(&redis.ClusterOptions{
-		Addrs: []string{"172.2.2.11:7001",
-			"localhost:7001",
-			//"172.2.2.12:7002",
-			//"172.2.2.13:7003",
-			//"172.2.2.14:7004",
-			//"172.2.2.15:7005",
-			//"172.2.2.16:7006"
+		Addrs: []string{
+			"127.0.0.1:7001",
+			"127.0.0.1:7002",
+			"127.0.0.1:7003",
+			"127.0.0.1:7004",
+			"127.0.0.1:7005",
+			"127.0.0.1:7006",
 		},
 		MaxRedirects:       0,
 		ReadOnly:           false,
@@ -36,21 +36,25 @@ func ExampleNewClusterClient() {
 		MaxRetries:         0,
 		MinRetryBackoff:    0,
 		MaxRetryBackoff:    0,
-		DialTimeout:        0,
-		ReadTimeout:        0,
-		WriteTimeout:       0,
-		PoolSize:           10,
+		DialTimeout:        50 * time.Second,
+		ReadTimeout:        50 * time.Second,
+		WriteTimeout:       50 * time.Second,
+		PoolSize:           300,
 		MinIdleConns:       0,
 		MaxConnAge:         0,
-		PoolTimeout:        0,
-		IdleTimeout:        0,
+		PoolTimeout:        100 * time.Second,
+		IdleTimeout:        500 * time.Second,
 		IdleCheckFrequency: 0,
 		TLSConfig:          nil,
 	})
 
-	cnt.Ping()
+	er1 := cnt.Ping().Err()
+	if er1 != nil {
+		fmt.Println(er1)
+		return
+	}
 	//
-	h := 1000000
+	h := 500000
 	var wg sync.WaitGroup
 	wg.Add(h)
 
@@ -61,7 +65,6 @@ func ExampleNewClusterClient() {
 			x := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
 			err := x.Err()
 			if err != nil {
-				fmt.Println(err)
 				fmt.Println(x)
 			} else {
 				fmt.Println("ok-->", k)
