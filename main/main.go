@@ -17,11 +17,13 @@ func ExampleNewClusterClient() {
 	// how to setup Redis Cluster.
 	cnt := redis.NewClusterClient(&redis.ClusterOptions{
 		Addrs: []string{"172.2.2.11:7001",
-			"172.2.2.12:7002",
-			"172.2.2.13:7003",
-			"172.2.2.14:7004",
-			"172.2.2.15:7005",
-			"172.2.2.16:7006"},
+			"localhost:7001",
+			//"172.2.2.12:7002",
+			//"172.2.2.13:7003",
+			//"172.2.2.14:7004",
+			//"172.2.2.15:7005",
+			//"172.2.2.16:7006"
+		},
 		MaxRedirects:       0,
 		ReadOnly:           false,
 		RouteByLatency:     false,
@@ -56,7 +58,14 @@ func ExampleNewClusterClient() {
 	for i := 0; i < h; i++ {
 		go func(k int, wg *sync.WaitGroup) {
 			defer wg.Done()
-			cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
+			x := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
+			err := x.Err()
+			if err != nil {
+				fmt.Println(err)
+				fmt.Println(x)
+			} else {
+				fmt.Println("ok-->", k)
+			}
 		}(i, &wg)
 	}
 	//
