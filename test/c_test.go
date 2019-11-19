@@ -209,3 +209,38 @@ func divideByZero() {
 	dog := 10 / cat
 	fmt.Println(dog)
 }
+
+func Test_slice_new(t *testing.T) {
+	type A struct {
+		ID int64
+	}
+	l := make([]*A, 0)
+	for i := int64(1); i < 5; i++ {
+		a := &A{
+			ID: i,
+		}
+
+		l = append(l, a)
+	}
+
+	l1 := l
+
+	l = make([]*A, 0)
+	for i := int64(5); i < 10; i++ {
+		a := &A{
+			ID: i,
+		}
+
+		l = append(l, a)
+	}
+
+	for _, v := range l {
+		fmt.Println(*v)
+	}
+
+	fmt.Println("-----------")
+	for _, v := range l1 {
+		fmt.Println(*v)
+	}
+
+}

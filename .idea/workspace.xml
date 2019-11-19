@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0861ac5-049a-437f-9789-5aeeaecf4820" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/test/hashcase/hash_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/main/main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rediscluster/redis_cluster_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/g/g.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/g/g.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/c_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/c_test.go" afterDir="false" />
+>>>>>>> 44fa075ba5720ac18389215fc2628dd1178fa6e1
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +29,13 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="/usr/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GoDepProject">
+    <integration-enabled>true</integration-enabled>
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -46,7 +59,7 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="configurable.Global.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -59,7 +72,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoProjectSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -79,6 +92,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Go Test.Test_slice_revers in goStudy/test/hashcase">
     <configuration name="Test_hash in goStudy/test/hashcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gostudy" />
@@ -92,6 +106,19 @@
       <method v="2" />
     </configuration>
     <configuration name="Test_hash_speed in goStudy/test/hashcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+=======
+  <component name="RunManager" selected="Go Build.go build goStudy/main">
+    <configuration name="go build goStudy/main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main/main.go" />
+      <package value="goStudy/main" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+>>>>>>> 44fa075ba5720ac18389215fc2628dd1178fa6e1
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/test/hashcase" />
       <framework value="gotest" />
@@ -99,6 +126,7 @@
       <package value="goStudy/test/hashcase" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
+<<<<<<< HEAD
       <pattern value="^Test_hash_speed$" />
       <method v="2" />
     </configuration>
@@ -133,15 +161,59 @@
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
       <pattern value="^Test_unmarshal$" />
+=======
+      <pattern value="^Test_IMsgHistory_prior_blockID$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_send_me_test in chat/Core/Serv/yserv/mytest" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/src/chat/Core/Serv/yserv/mytest" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="chat/Core/Serv/yserv/mytest" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_send_me_test$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_slice in gostudy/test (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <working_directory value="$PROJECT_DIR$/test" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="gostudy/test" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_slice$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_slice in gostudy/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <working_directory value="$PROJECT_DIR$/test" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="gostudy/test" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_slice$" />
+>>>>>>> 44fa075ba5720ac18389215fc2628dd1178fa6e1
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Go Test.Test_slice_revers in goStudy/test/hashcase" />
         <item itemvalue="Go Test.Test_slice_1_n in goStudy/test/hashcase" />
         <item itemvalue="Go Test.Test_unmarshal in goStudy/test/hashcase" />
         <item itemvalue="Go Test.Test_hash_speed in goStudy/test/hashcase" />
         <item itemvalue="Go Test.Test_hash in goStudy/test/hashcase" />
+=======
+        <item itemvalue="Go Build.go build goStudy/main" />
+        <item itemvalue="Go Test.Test_slice in gostudy/test (1)" />
+        <item itemvalue="Go Test.Test_slice in gostudy/test" />
+        <item itemvalue="Go Test.Test_send_me_test in chat/Core/Serv/yserv/mytest" />
+        <item itemvalue="Go Test.Test_IMsgHistory_prior_blockID in chat/Core/Serv/yserv/mytest" />
+>>>>>>> 44fa075ba5720ac18389215fc2628dd1178fa6e1
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +235,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/chat" />
+    </ignored-roots>
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -172,7 +247,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/lib/g/g.go</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
