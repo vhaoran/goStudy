@@ -18,12 +18,22 @@ func ExampleNewClusterClient() {
 	// how to setup Redis Cluster.
 	cnt := redis.NewClusterClient(&redis.ClusterOptions{
 		Addrs: []string{
+<<<<<<< HEAD
 			"192.168.0.99:7001",
 			"192.168.0.99:7002",
 			"192.168.0.99:7003",
 			"192.168.0.99:7004",
 			"192.168.0.99:7005",
 			"192.168.0.99:7006"},
+=======
+			"127.0.0.1:7001",
+			"127.0.0.1:7002",
+			"127.0.0.1:7003",
+			"127.0.0.1:7004",
+			"127.0.0.1:7005",
+			"127.0.0.1:7006",
+		},
+>>>>>>> 307b400b457cc33950419e0dc830f3c34f19ad93
 		MaxRedirects:       0,
 		ReadOnly:           false,
 		RouteByLatency:     false,
@@ -36,21 +46,32 @@ func ExampleNewClusterClient() {
 		MaxRetries:         0,
 		MinRetryBackoff:    0,
 		MaxRetryBackoff:    0,
+<<<<<<< HEAD
 		DialTimeout:        0,
 		ReadTimeout:        0,
 		WriteTimeout:       0,
 		PoolSize:           2,
+=======
+		DialTimeout:        50 * time.Second,
+		ReadTimeout:        50 * time.Second,
+		WriteTimeout:       50 * time.Second,
+		PoolSize:           300,
+>>>>>>> 307b400b457cc33950419e0dc830f3c34f19ad93
 		MinIdleConns:       0,
 		MaxConnAge:         0,
-		PoolTimeout:        0,
-		IdleTimeout:        0,
+		PoolTimeout:        100 * time.Second,
+		IdleTimeout:        500 * time.Second,
 		IdleCheckFrequency: 0,
 		TLSConfig:          nil,
 	})
 
-	cnt.Ping()
+	er1 := cnt.Ping().Err()
+	if er1 != nil {
+		fmt.Println(er1)
+		return
+	}
 	//
-	h := 1000000
+	h := 500000
 	var wg sync.WaitGroup
 	wg.Add(h)
 
@@ -58,11 +79,20 @@ func ExampleNewClusterClient() {
 	for i := 0; i < h; i++ {
 		go func(k int, wg *sync.WaitGroup) {
 			defer wg.Done()
+<<<<<<< HEAD
 			stat := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
 			if stat.Err() != nil {
 				fmt.Println("-----------------", stat.Err())
 			} else {
 				fmt.Println("ok->", k)
+=======
+			x := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
+			err := x.Err()
+			if err != nil {
+				fmt.Println(x)
+			} else {
+				fmt.Println("ok-->", k)
+>>>>>>> 307b400b457cc33950419e0dc830f3c34f19ad93
 			}
 		}(i, &wg)
 	}
