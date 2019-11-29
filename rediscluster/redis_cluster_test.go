@@ -3,11 +3,10 @@ package rediscluster
 import (
 	"fmt"
 	"log"
-	"sync"
 	"testing"
 	"time"
 
-	"goStudy/cmn/yredis"
+	"goStudy/lib/yredis"
 )
 
 func Test_redis(t *testing.T) {
@@ -26,9 +25,6 @@ func Test_redis(t *testing.T) {
 		return
 	}
 
-	sync.Pool{
-		New: nil,
-	}
 	//
 	t0 := time.Now()
 	for i := 0; i < 10000; i++ {

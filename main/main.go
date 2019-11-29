@@ -70,27 +70,16 @@ func ExampleNewClusterClient() {
 	for i := 0; i < h; i++ {
 		go func(k int, wg *sync.WaitGroup) {
 			defer wg.Done()
-			<<<<<<< HEAD
 			stat := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
 			if stat.Err() != nil {
 				fmt.Println("-----------------", stat.Err())
 			} else {
 				fmt.Println("ok->", k)
-				====== =
-				x := cnt.Set(fmt.Sprint("a_", k), k, time.Hour*100)
-				err := x.Err()
-				if err != nil {
-					fmt.Println(x)
-				} else {
-					fmt.Println("ok-->", k)
-					>>>>>>> 307
-					b400b457cc33950419e0dc830f3c34f19ad93
-				}
 			}
-			(i, &wg)
-		}
-		//
-		wg.Wait()
-		//
-		fmt.Println("---------aaa-----", time.Since(t0))
+		}(i, &wg)
 	}
+	//
+	wg.Wait()
+	//
+	fmt.Println("---------aaa-----", time.Since(t0))
+}
