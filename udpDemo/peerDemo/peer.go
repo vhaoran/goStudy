@@ -19,8 +19,13 @@ const SERVERPORT = 8888
 func main() {
 	// 当前进程标记字符串,便于显示
 	tag = os.Args[1]
+	portPeer := 8888
+	if len(os.Args) > 2 {
+		portPeer, _ = strconv.Atoi(os.Args[2])
+	}
+
 	// 注意端口必须固定
-	srcAddr := &net.UDPAddr{IP: net.IPv4zero, Port: 9982}
+	srcAddr := &net.UDPAddr{IP: net.IPv4zero, Port: portPeer}
 
 	dstAddr := &net.UDPAddr{
 		IP:   net.ParseIP(SERVERIP),
@@ -68,6 +73,8 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 	}
 	defer conn.Close()
 
+	fmt.Println("after net.DialUDP")
+
 	// 向另一个peer发送一条udp消息
 	// (对方peer的nat设备会丢弃该消息,非法来源),
 	// 用意是在自身的nat设备打开一条可进入的通道,
@@ -75,11 +82,15 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 	if _, err = conn.Write([]byte(HAND_SHAKE_MSG)); err != nil {
 		log.Println("send handshake:", err)
 	}
+	log.Println("after send handshake:")
+
 	go func() {
 		for {
-			time.Sleep(10 * time.Second)
+			time.Sleep(3 * time.Second)
 			if _, err = conn.Write([]byte("from [" + tag + "]")); err != nil {
-				log.Println("send msg fail", err)
+				log.Println("############send msg fail", err)
+			} else {
+				log.Print(tag, " has send")
 			}
 		}
 	}()
@@ -87,7 +98,7 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 		data := make([]byte, 1024)
 		n, _, err := conn.ReadFromUDP(data)
 		if err != nil {
-			log.Printf("error during read: %s\n", err)
+			log.Printf("#########error during read: %s\n", err)
 		} else {
 			log.Printf("收到数据:%s\n", data[:n])
 		}

@@ -244,3 +244,12 @@ func Test_slice_new(t *testing.T) {
 	}
 
 }
+
+func Test_byte_n(t *testing.T) {
+	a := []string{"a","b","c","d","e","f","g","h"}
+	fmt.Println(a[:1])
+	fmt.Println(a[:2])
+	fmt.Println(a[:3])
+
+
+}
