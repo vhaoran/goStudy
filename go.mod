@@ -16,6 +16,7 @@ require (
 	github.com/go-redis/redis v0.0.0-20190719092155-6bc7daa5b1e8
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/go-xorm/xorm v0.7.5
+	github.com/golang/protobuf v1.3.2
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
