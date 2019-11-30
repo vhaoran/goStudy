@@ -10,6 +10,12 @@ import (
 const PORT = 8888
 
 func main() {
+	for {
+		loop()
+	}
+}
+
+func loop() {
 	listener, err := net.ListenUDP("udp",
 		&net.UDPAddr{
 			IP:   net.IPv4zero,
@@ -20,6 +26,7 @@ func main() {
 		fmt.Println("listener error:", err)
 		return
 	}
+	defer listener.Close()
 
 	log.Printf("local addr: <%s> \n", listener.LocalAddr().String())
 	peers := make([]net.UDPAddr, 0, 2)
@@ -36,7 +43,7 @@ func main() {
 			listener.WriteToUDP([]byte(peers[1].String()), &peers[0])
 			listener.WriteToUDP([]byte(peers[0].String()), &peers[1])
 			time.Sleep(time.Second * 8)
-			log.Println("中转服务器退出,仍不影响peers间通信")
+			log.Println("中转服务器本次循环退出,仍不影响peers间通信，下次循环即将启动")
 			return
 		}
 	}

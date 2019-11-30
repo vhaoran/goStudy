@@ -1,5 +1,6 @@
 app=peer
-ext=.out
+#ext=.out
+ext=""
 path=./
 platform=$(P)
 generate=$(g)
@@ -10,7 +11,7 @@ export GO111MODULE=on
 build:
 #	编译前先进行 go generate
 ifeq ($(platform), linux)
-	@CGO_ENABLED=0 GOOS="linux" GOARCH="amd64" go build -ldflags $(flag) -o $(path)$(app)_linux$(ext) ./
+	@CGO_ENABLED=0 GOOS="linux" GOARCH="amd64" go build -ldflags $(flag) -o $(path)$(app)$(ext) ./
 else
 	@go build -ldflags $(flag) -o $(path)$(app)_darwin$(ext) ./
 endif

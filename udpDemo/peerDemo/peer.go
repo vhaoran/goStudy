@@ -13,25 +13,25 @@ import (
 var tag string
 
 const HAND_SHAKE_MSG = "我是打洞消息"
-const SERVERIP = "47.104.24.37"
-const SERVERPORT = 8888
+const SERVER_IP = "47.104.24.37"
+const SERVER_PORT = 8888
 
 func main() {
 	// 当前进程标记字符串,便于显示
 	tag = os.Args[1]
-	portPeer := 8888
+	portOfPeer := 9082
 	if len(os.Args) > 2 {
-		portPeer, _ = strconv.Atoi(os.Args[2])
+		portOfPeer, _ = strconv.Atoi(os.Args[2])
 	}
 
 	// 注意端口必须固定
-	srcAddr := &net.UDPAddr{IP: net.IPv4zero, Port: portPeer}
+	srcAddr := &net.UDPAddr{IP: net.IPv4zero, Port: portOfPeer}
 
-	dstAddr := &net.UDPAddr{
-		IP:   net.ParseIP(SERVERIP),
-		Port: SERVERPORT}
+	serverAddr := &net.UDPAddr{
+		IP:   net.ParseIP(SERVER_IP),
+		Port: SERVER_PORT}
 
-	conn, err := net.DialUDP("udp", srcAddr, dstAddr)
+	conn, err := net.DialUDP("udp", srcAddr, serverAddr)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -87,7 +87,8 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 	go func() {
 		for {
 			time.Sleep(3 * time.Second)
-			if _, err = conn.Write([]byte("from [" + tag + "]")); err != nil {
+			if _, err = conn.Write([]byte(fmt.Sprint("from ["+tag+"]----> ", conn.LocalAddr().String(), "--->", conn.RemoteAddr().String())));
+				err != nil {
 				log.Println("############send msg fail", err)
 			} else {
 				log.Print(tag, " has send")
@@ -96,11 +97,11 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 	}()
 	for {
 		data := make([]byte, 1024)
-		n, _, err := conn.ReadFromUDP(data)
+		n, cntInfo, err := conn.ReadFromUDP(data)
 		if err != nil {
 			log.Printf("#########error during read: %s\n", err)
 		} else {
-			log.Printf("收到数据:%s\n", data[:n])
+			log.Printf("收到数据:%s\n", data[:n], cntInfo.String())
 		}
 	}
 }
