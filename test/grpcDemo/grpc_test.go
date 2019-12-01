@@ -27,7 +27,7 @@ func (p *Person) String() string {
 
 func (p Person) ProtoMessage() {}
 
-func Test_protobuffer(t *testing.T) {
+func Test_proto_buffer(t *testing.T) {
 	t0 := time.Now()
 	for i := 0; i < high; i++ {
 		bean := &Person{
