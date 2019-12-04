@@ -1,4 +1,4 @@
-package yredis
+package ymongo
 
 import (
 	"context"
@@ -8,15 +8,13 @@ import (
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
-
-	"goStudy/lib/ymongo"
 )
 
 func Test_mongo_insert(t *testing.T) {
 	var ctx = context.Background()
 	var doc = bson.M{"a": 100, "b": 30}
 
-	client, err := ymongo.NewMongoClient()
+	client, err := NewMongoClient()
 	defer client.Disconnect(ctx)
 	if err != nil {
 		fmt.Println("------aa-----------")
@@ -52,7 +50,7 @@ func Test_mongo_insert2(t *testing.T) {
 	var ctx = context.Background()
 	var doc = bson.M{"a": 100, "b": 30}
 
-	client, err := ymongo.NewMongoClient()
+	client, err := NewMongoClient()
 	defer client.Disconnect(ctx)
 	if err != nil {
 		fmt.Println("------aa-----------")
@@ -90,7 +88,7 @@ func Test_mongo_insert_batch(t *testing.T) {
 	var ctx = context.Background()
 	var docs []interface{}
 
-	client, err := ymongo.NewMongoClient()
+	client, err := NewMongoClient()
 	defer client.Disconnect(ctx)
 	if err != nil {
 		fmt.Println("------aa-----------")
