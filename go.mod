@@ -20,6 +20,7 @@ require (
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
+	github.com/jinzhu/gorm v1.9.11
 	github.com/json-iterator/go v1.1.7
 	github.com/klaidliadon/next v0.0.0-20170704090259-10c2cb236a08
 	github.com/labstack/echo v3.3.10+incompatible
@@ -27,8 +28,7 @@ require (
 	github.com/labstack/gommon v0.2.9
 	github.com/leodido/go-urn v1.1.0 // indirect
 	github.com/levigross/grequests v0.0.0-20190130132859-37c80f76a0da
-	github.com/lib/pq v1.2.0 // indirect
-	github.com/mattn/go-sqlite3 v1.11.0 // indirect
+	github.com/lib/pq v1.2.0
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/mojocn/base64Captcha v0.0.0-20190801020520-752b1cd608b2
 	github.com/panjf2000/ants v1.1.0
