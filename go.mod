@@ -8,6 +8,7 @@ require (
 	github.com/atcharles/abio v0.0.0-20190722035837-5130f3d95597
 	github.com/atcharles/ginflux v0.1.1-0.20190806152705-b82ca157a1e8
 	github.com/atcharles/wslt v0.0.0-20190502062542-d9d2b568ad73
+	github.com/davecgh/go-spew v1.1.1
 	github.com/denisenkom/go-mssqldb v0.0.0-20190724012636-11b2859924c1 // indirect
 	github.com/eclipse/paho.mqtt.golang v1.2.0
 	github.com/esimov/caire v1.2.3-0.20190708153325-c5821f66daef
