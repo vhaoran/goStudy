@@ -2,19 +2,24 @@ package main
 
 import (
 	"flag"
-	"time"
 	"github.com/starjiang/elog"
+	"log"
+	"time"
 )
 
 func main() {
 	flag.Parse()
 
-	defer elog.Flush()
-	for i := 0; i < 100; i++ {
-		go func() {
-			elog.Info("hello", "world")
-		}()
+	x := elog.NewEasyLogger("debug", false, 1,
+		elog.NewEasyFileHandler("./logs", 100))
+
+	defer x.Flush()
+
+	h := 100 * 10000
+	t0 := time.Now()
+	for i := 0; i < h; i++ {
+		x.Info("hello", "world")
 	}
 
-	time.Sleep(time.Second)
+	log.Println("time: ", time.Since(t0))
 }
