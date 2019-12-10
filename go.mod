@@ -39,6 +39,7 @@ require (
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
+	github.com/starjiang/elog v1.0.4
 	github.com/stretchr/testify v1.3.0
 	github.com/tidwall/gjson v1.3.2-0.20190712134638-dea71f728d5e
 	github.com/unknwon/com v0.0.0-20190804042917-757f69c95f3e
