@@ -18,9 +18,9 @@ func main() {
 	host := flag.String("host", "192.168.0.99", "host name")
 	flag.Parse()
 
-	obj := g.NewWaitGroupN(1000)
+	obj := g.NewWaitGroupN(500)
 	t0 := time.Now()
-	h := 100
+	h := 500
 	for i := 0; i < h; i++ {
 		id := fmt.Sprint(i, "_whr")
 		obj.Call(func() error {
@@ -29,8 +29,12 @@ func main() {
 		})
 	}
 	obj.Wait()
-	fmt.Println("sec:", time.Since(t0))
-	log.Println("count:", h*10000)
+	offset := time.Since(t0)
+	time.Sleep(5 * time.Second)
+	fmt.Println("------", "", "-----------")
+	fmt.Println("------", "", "-----------")
+	fmt.Println("BBBB-sec:", offset)
+	log.Println("BBBB-count:", h*10000)
 }
 
 func send(id, host string) {
@@ -59,13 +63,7 @@ func send(id, host string) {
 		}
 
 		i++
-		fmt.Println("send: hello, server", src)
-		offset := time.Since(t0)
-		if offset.Seconds() > 0 {
-			log.Println("--", float64(i)/offset.Seconds(), "count:", i, " second:", offset, " avg:")
-		} else {
-			log.Println("count: ", i, " second: ", time.Since(t0))
-		}
+		//fmt.Println("send: hello, server", src)
 
 		//_, msgData, err := conn.ReadMessage()
 		//if err != nil {
@@ -75,4 +73,11 @@ func send(id, host string) {
 		//fmt.Printf("recv: %s\n", string(msgData))
 		//time.Sleep(time.Second * 1)
 	}
+	offset := time.Since(t0)
+	if offset.Seconds() > 0 {
+		log.Println("--", float64(i)/offset.Seconds(), "count:", i, " second:", offset, " avg:")
+	} else {
+		log.Println("count: ", i, " second: ", time.Since(t0))
+	}
+
 }

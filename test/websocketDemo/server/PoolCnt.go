@@ -1,7 +1,8 @@
 package main
 
 import (
-	"log"
+	"encoding/json"
+	"errors"
 	"sync"
 )
 
@@ -32,7 +33,7 @@ func (r *PoolCnt) loop() {
 		select {
 		case buffer, ok := <-r.Bus:
 			if ok {
-				log.Println(" bus received======= ", string(buffer))
+				r.cast(buffer)
 			}
 		}
 	}
@@ -58,4 +59,40 @@ func (r *PoolCnt) Exist(key string) bool {
 	defer r.Unlock()
 	_, ok := r.m[key]
 	return ok
+}
+
+func (r *PoolCnt) cast(buffer []byte) error {
+	if len(buffer) == 0 {
+		return errors.New("no data to send")
+	}
+	//
+	bean := new(MsgData)
+	if err := json.Unmarshal(buffer, bean); err != nil {
+		return err
+	}
+	//
+	_, dst := r.getSrcDst(bean)
+	//
+	if obj := r.GetUnit(dst); obj != nil {
+		if s, err := json.Marshal(bean); err != nil {
+			return obj.Cast(s)
+		}else{
+			return err
+		}
+
+	}
+	//save offline
+	return nil
+}
+
+func (r *PoolCnt) getSrcDst(bean *MsgData) (src, dst string) {
+	return bean.Src, bean.Dst
+}
+
+func (r *PoolCnt) GetUnit(key string) *PoolUnit {
+	obj, ok := r.m[key]
+	if !ok || obj == nil {
+		return nil
+	}
+	return obj
 }
