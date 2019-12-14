@@ -19,6 +19,7 @@ require (
 	github.com/go-xorm/xorm v0.7.5
 	github.com/golang/protobuf v1.3.2
 	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/gorilla/websocket v1.4.0
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
 	github.com/jinzhu/gorm v1.9.11

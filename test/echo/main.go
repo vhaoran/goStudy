@@ -1,4 +1,4 @@
-package echo
+package main
 
 import (
 	"net/http"
@@ -11,7 +11,6 @@ func main() {
 	e.GET("/ping", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
-	e.Static()
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
