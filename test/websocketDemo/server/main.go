@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 
 	"github.com/gorilla/websocket"
 )
 
-var pool = new(PoolCnt)
+var pool = NewPoolCnt()
 
 func main() {
 	fmt.Println("start ws... ...")
@@ -25,31 +24,26 @@ func chat(w http.ResponseWriter, req *http.Request) {
 		fmt.Printf("conn creat err:%s\n", err.Error())
 		return
 	}
-
-	fmt.Println("------", "header", "-----------")
-	for key, v := range req.Header {
-		fmt.Println(key, v)
-	}
-
-	id, ok := req.Header["id"]
-	if !ok {
-		//return
-	}
-
-	log.Println("connect ok of id :", id)
 	defer conn.Close()
-
-	for {
-		msgType, msgData, err := conn.ReadMessage()
-		if err != nil {
-			fmt.Printf("conn read err:%s\n", err.Error())
-			return
-		}
-
-		fmt.Printf("recv: %s\n", string(msgData))
-		conn.WriteMessage(msgType, []byte("hello, client"))
-		fmt.Println("send: hello, client")
-
-		time.Sleep(time.Second * 1)
+	fmt.Println("------", "header", "-----------")
+	for k, v := range req.Header {
+		log.Println(k, v)
 	}
+	fmt.Println("------", "endHeader", "-----------")
+
+	//-------- -----------------------------
+	l, ok := req.Header["Id"]
+	fmt.Println("------", "result", "-----------")
+	log.Println(l, ok)
+
+	if !ok || len(l) == 0 {
+		log.Println("not login,ensure pass id in header")
+		return
+	}
+	id := l[0]
+
+	//-------------------------------------
+	unit := NewPoolUnit(pool.Bus)
+	pool.Push(id, unit)
+	unit.Loop(conn, id)
 }

@@ -1,19 +1,44 @@
 package main
 
 import (
+	"log"
 	"sync"
-
-	"github.com/gorilla/websocket"
 )
 
 type (
 	PoolCnt struct {
+		Bus chan []byte
+
 		sync.Mutex
-		m map[string]*websocket.Conn
+		m map[string]*PoolUnit
 	}
 )
 
-func (r *PoolCnt) GetCnt(key string) *websocket.Conn {
+const (
+	BUS_LEN = 1000000
+)
+
+func NewPoolCnt() *PoolCnt {
+	bean := &PoolCnt{
+		Bus: make(chan []byte, BUS_LEN),
+		m:   make(map[string]*PoolUnit),
+	}
+	go bean.loop()
+	return bean
+}
+
+func (r *PoolCnt) loop() {
+	for {
+		select {
+		case buffer, ok := <-r.Bus:
+			if ok {
+				log.Println(" bus received======= ", string(buffer))
+			}
+		}
+	}
+}
+
+func (r *PoolCnt) GetCnt(key string) *PoolUnit {
 	r.Lock()
 	defer r.Unlock()
 	if conn, ok := r.m[key]; ok {
@@ -22,7 +47,7 @@ func (r *PoolCnt) GetCnt(key string) *websocket.Conn {
 	return nil
 }
 
-func (r *PoolCnt) Push(key string, conn *websocket.Conn) {
+func (r *PoolCnt) Push(key string, conn *PoolUnit) {
 	r.Lock()
 	defer r.Unlock()
 	r.m[key] = conn
