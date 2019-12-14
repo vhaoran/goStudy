@@ -32,6 +32,12 @@ func NewPoolUnit(bus chan<- []byte) *PoolUnit {
 }
 
 func (r *PoolUnit) Loop(conn *websocket.Conn, id string) {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("err:", err)
+		}
+	}()
+
 	for {
 		msgType, msgData, err := conn.ReadMessage()
 		if err != nil {

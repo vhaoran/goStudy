@@ -9,18 +9,37 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
+
+	"goStudy/g"
 )
 
 func main() {
-	id := flag.String("id", "whr", "user id")
+	//id := flag.String("id", "whr", "user id")
 	host := flag.String("host", "192.168.0.99", "host name")
 	flag.Parse()
-	src := fmt.Sprint("[", *id, "]")
-	fmt.Println("------[", *id, "]-----------")
 
-	wsUrl := url.URL{Scheme: "ws", Host: *host + ":9999", Path: "/chat"}
+	obj := g.NewWaitGroupN(1000)
+	t0 := time.Now()
+	h := 100
+	for i := 0; i < h; i++ {
+		id := fmt.Sprint(i, "_whr")
+		obj.Call(func() error {
+			send(id, *host)
+			return nil
+		})
+	}
+	obj.Wait()
+	fmt.Println("sec:", time.Since(t0))
+	log.Println("count:", h*10000)
+}
+
+func send(id, host string) {
+	src := fmt.Sprint("[", id, "]")
+	fmt.Println("------[", id, "]-----------")
+
+	wsUrl := url.URL{Scheme: "ws", Host: host + ":9999", Path: "/chat"}
 	header := &http.Header{}
-	header.Set("ID", *id)
+	header.Set("ID", id)
 
 	conn, _, err := (&websocket.Dialer{}).Dial(wsUrl.String(), *header)
 	if err != nil {
@@ -32,9 +51,8 @@ func main() {
 	fmt.Println("conn success", src)
 	t0 := time.Now()
 	i := int64(0)
-	for {
-
-		err = conn.WriteMessage(websocket.TextMessage, []byte("hello, server"+src))
+	for j := 0; j < 10000; j++ {
+		err = conn.WriteMessage(websocket.TextMessage, []byte(fmt.Sprint(i, "--hello_"+src)))
 		if err != nil {
 			fmt.Printf("send err:%s\n", err.Error())
 			return
@@ -44,7 +62,7 @@ func main() {
 		fmt.Println("send: hello, server", src)
 		offset := time.Since(t0)
 		if offset.Seconds() > 0 {
-			log.Println("count:", i, " second:", offset, " avg:", float64(i)/offset.Seconds())
+			log.Println("--", float64(i)/offset.Seconds(), "count:", i, " second:", offset, " avg:")
 		} else {
 			log.Println("count: ", i, " second: ", time.Since(t0))
 		}
