@@ -1,15 +1,13 @@
 app=p
 ext=.out
 path=./
-platform=$(P)
-generate=$(g)
+platform=$(uname -s)
 flag='all=-w -s'
 export GO111MODULE=on
 
 .PHONY:build,start,stop
 build:
-#	编译前先进行 go generate
-ifeq ($(platform), linux)
+ifeq ($(platform), Linux)
 	@CGO_ENABLED=0 GOOS="linux" GOARCH="amd64" go build -ldflags $(flag) -o $(path)$(app)_linux$(ext) ./
 else
 	@go build -ldflags $(flag) -o $(path)$(app)_darwin$(ext) ./

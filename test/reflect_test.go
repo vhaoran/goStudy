@@ -38,7 +38,3 @@ func Test_TypeOf_pointer(t *testing.T) {
 
 	//v := reflect.ValueOf(a)
 }
-
-func Test_(t *testing.T) {
-
-}

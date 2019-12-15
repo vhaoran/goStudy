@@ -23,8 +23,7 @@ func Test_unmarshal(t *testing.T) {
 
 		b := new(TestHash)
 		//
-		if err := json.Unmarshal([]byte(s), b);
-			err != nil {
+		if err := json.Unmarshal([]byte(s), b); err != nil {
 			fmt.Println(err)
 		}
 	}

@@ -87,8 +87,7 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 	go func() {
 		for {
 			time.Sleep(3 * time.Second)
-			if _, err = conn.Write([]byte(fmt.Sprint("from ["+tag+"]----> ", conn.LocalAddr().String(), "--->", conn.RemoteAddr().String())));
-				err != nil {
+			if _, err = conn.Write([]byte(fmt.Sprint("from ["+tag+"]----> ", conn.LocalAddr().String(), "--->", conn.RemoteAddr().String()))); err != nil {
 				log.Println("############send msg fail", err)
 			} else {
 				log.Print(tag, " has send")
@@ -101,7 +100,7 @@ func digHole(srcAddr *net.UDPAddr, anotherAddr *net.UDPAddr) {
 		if err != nil {
 			log.Printf("#########error during read: %s\n", err)
 		} else {
-			log.Printf("收到数据:%s\n", data[:n], cntInfo.String())
+			log.Printf("收到数据:%s : %s\n", data[:n], cntInfo.String())
 		}
 	}
 }

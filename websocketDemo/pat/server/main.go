@@ -35,4 +35,3 @@ func main() {
 	http.HandleFunc("/chat", chat)
 	http.ListenAndServe(":9999", nil)
 }
-

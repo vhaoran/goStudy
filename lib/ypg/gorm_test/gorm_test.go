@@ -60,9 +60,10 @@ func Test_insert(t *testing.T) {
 	wg.Add(h)
 
 	for i := 0; i < h; i++ {
+		j := i
 		go func() {
 			bean := &PersonX{
-				Name: fmt.Sprint("aaaaa", i, "55ssssss5", i),
+				Name: fmt.Sprint("aaaaa", j, "55ssssss5", j),
 			}
 
 			if err := db.Save(bean).Error; err != nil {

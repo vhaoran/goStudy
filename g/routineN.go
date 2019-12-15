@@ -1,6 +1,5 @@
 package g
 
-
 import (
 	"log"
 	"sync"
@@ -52,5 +51,3 @@ func (r *WaitGroupN) Wait() time.Duration {
 
 	return time.Since(r.start)
 }
-
-

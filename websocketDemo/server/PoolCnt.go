@@ -3,7 +3,11 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
+	"go.uber.org/atomic"
+	"log"
 	"sync"
+	"time"
 )
 
 type (
@@ -12,6 +16,10 @@ type (
 
 		sync.Mutex
 		m map[string]*PoolUnit
+
+		threadMin   atomic.Int32
+		threadMax   atomic.Int32
+		threadCount atomic.Int32
 	}
 )
 
@@ -24,17 +32,63 @@ func NewPoolCnt() *PoolCnt {
 		Bus: make(chan []byte, BUS_LEN),
 		m:   make(map[string]*PoolUnit),
 	}
+	bean.threadMin.Store(1000)
+	bean.threadMin.Store(10000)
+	bean.threadCount.Store(0)
+
 	go bean.loop()
 	return bean
 }
 
 func (r *PoolCnt) loop() {
 	for {
+		r.autoAdd()
+		time.Sleep(time.Second * 1)
+	}
+}
+
+func (r *PoolCnt) autoAdd() {
+	cur := int32(len(r.Bus))
+	count := r.threadCount.Load()
+	//
+	if count < r.threadMin.Load() || (count < r.threadMax.Load() && cur > (count)*5) {
+		for i := 0; i < 100; i++ {
+			r.addOne()
+		}
+	}
+}
+
+func (r *PoolCnt) addOne() {
+	fmt.Println("#####  ", r.threadCount.Load(), "   ####")
+
+	if r.threadCount.Load() >= r.threadMax.Load() {
+		return
+	}
+
+	r.threadCount.Inc()
+	defer func() {
+		if err := recover(); err != nil {
+			log.Println(err)
+		}
+		r.threadCount.Dec()
+	}()
+
+	exit := false
+	for {
 		select {
-		case buffer, ok := <-r.Bus:
+		case data, ok := <-r.Bus:
 			if ok {
-				r.cast(buffer)
+				if err := r.dispatch(data); err != nil {
+					log.Println(err)
+				}
+				//r.autoAdd()
 			}
+		case <-time.After(time.Second * 60):
+			exit = true
+		}
+
+		if exit {
+			break
 		}
 	}
 }
@@ -48,7 +102,7 @@ func (r *PoolCnt) GetCnt(key string) *PoolUnit {
 	return nil
 }
 
-func (r *PoolCnt) Push(key string, conn *PoolUnit) {
+func (r *PoolCnt) PushUnit(key string, conn *PoolUnit) {
 	r.Lock()
 	defer r.Unlock()
 	r.m[key] = conn
@@ -61,7 +115,7 @@ func (r *PoolCnt) Exist(key string) bool {
 	return ok
 }
 
-func (r *PoolCnt) cast(buffer []byte) error {
+func (r *PoolCnt) dispatch(buffer []byte) error {
 	if len(buffer) == 0 {
 		return errors.New("no data to send")
 	}
@@ -76,11 +130,12 @@ func (r *PoolCnt) cast(buffer []byte) error {
 	if obj := r.GetUnit(dst); obj != nil {
 		if s, err := json.Marshal(bean); err != nil {
 			return obj.Cast(s)
-		}else{
+		} else {
 			return err
 		}
-
 	}
+	//if local not exists key,then brocast to other node
+
 	//save offline
 	return nil
 }

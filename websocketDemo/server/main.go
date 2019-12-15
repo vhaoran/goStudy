@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("start ws... ...")
 	http.HandleFunc("/chat", chat)
 
-	http.ListenAndServe(":9999", nil)
+	log.Println(http.ListenAndServe(":9999", nil))
 }
 
 func chat(w http.ResponseWriter, req *http.Request) {
@@ -44,6 +44,6 @@ func chat(w http.ResponseWriter, req *http.Request) {
 
 	//-------------------------------------
 	unit := NewPoolUnit(pool.Bus)
-	pool.Push(id, unit)
+	pool.PushUnit(id, unit)
 	unit.Loop(conn, id)
 }
