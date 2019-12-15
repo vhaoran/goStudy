@@ -25,11 +25,11 @@ func chat(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	defer conn.Close()
-	fmt.Println("------", "header", "-----------")
-	for k, v := range req.Header {
-		log.Println(k, v)
-	}
-	fmt.Println("------", "endHeader", "-----------")
+	//fmt.Println("------", "header", "-----------")
+	//for k, v := range req.Header {
+	//	log.Println(k, v)
+	//}
+	//fmt.Println("------", "endHeader", "-----------")
 
 	//-------- -----------------------------
 	l, ok := req.Header["Id"]

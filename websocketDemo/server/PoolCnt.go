@@ -33,7 +33,7 @@ func NewPoolCnt() *PoolCnt {
 		m:   make(map[string]*PoolUnit),
 	}
 	bean.threadMin.Store(1000)
-	bean.threadMin.Store(10000)
+	bean.threadMax.Store(10000)
 	bean.threadCount.Store(0)
 
 	go bean.loop()
@@ -75,6 +75,7 @@ func (r *PoolCnt) addOne() {
 
 	exit := false
 	for {
+		fmt.Println(" .......loop wait.......")
 		select {
 		case data, ok := <-r.Bus:
 			if ok {

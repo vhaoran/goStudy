@@ -44,15 +44,22 @@ func (r *PoolUnit) Loop(conn *websocket.Conn, id string) {
 		_, msgData, err := conn.ReadMessage()
 		if err != nil {
 			fmt.Printf("**********conn read err:%s\n", err.Error())
-			continue
+			return
 		}
-		log.Println("unit received from: ", id, "---data->", string(msgData))
+		// log.Println("unit received from: ", id, "---data->", string(msgData))
 
 		r.bus <- msgData
 	}
 }
 
 func (r *PoolUnit) Cast(buffer []byte) error {
+	defer func() {
+		if err := recover(); err != nil {
+			log.Println(err)
+		}
+		r.conn.Close()
+	}()
+
 	err := r.conn.WriteMessage(1, buffer)
 	if err != nil {
 		fmt.Println("PoolUnit->Cast error:", err)
