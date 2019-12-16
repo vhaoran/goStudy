@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/gorilla/websocket"
 )
@@ -15,8 +14,8 @@ type (
 	}
 
 	PoolUnit struct {
-		bus  chan<- []byte
-		conn *websocket.Conn
+		bus chan<- []byte
+		out chan []byte
 	}
 )
 
@@ -26,14 +25,37 @@ func (r *MsgData) Str() string {
 
 func NewPoolUnit(bus chan<- []byte) *PoolUnit {
 	bean := &PoolUnit{
-		//conn: make(chan []byte, 100),
+		out: make(chan []byte, 100),
 		bus: bus,
 	}
 	return bean
 }
 
 func (r *PoolUnit) Loop(conn *websocket.Conn, id string) {
-	r.conn = conn
+	r.loopDispatch(conn, id)
+	r.loopReceive(conn, id)
+}
+
+func (r *PoolUnit) loopDispatch(conn *websocket.Conn, id string) {
+	for {
+		select {
+		case data, ok := <-r.out:
+			if ok {
+				if err := conn.WriteMessage(0, []byte(data)); err != nil {
+					return
+				}
+			} else {
+				return
+			}
+		}
+	}
+}
+
+func (r *PoolUnit) Dispatch(data []byte) {
+	r.out <- data
+}
+
+func (r *PoolUnit) loopReceive(conn *websocket.Conn, id string) {
 	defer func() {
 		if err := recover(); err != nil {
 			fmt.Println("err:", err)
@@ -50,22 +72,4 @@ func (r *PoolUnit) Loop(conn *websocket.Conn, id string) {
 
 		r.bus <- msgData
 	}
-}
-
-func (r *PoolUnit) Cast(buffer []byte) error {
-	defer func() {
-		if err := recover(); err != nil {
-			log.Println(err)
-		}
-		r.conn.Close()
-	}()
-
-	err := r.conn.WriteMessage(1, buffer)
-	if err != nil {
-		fmt.Println("PoolUnit->Cast error:", err)
-	} else {
-		log.Println("PoolUnit->Cast ok", string(buffer))
-	}
-
-	return err
 }

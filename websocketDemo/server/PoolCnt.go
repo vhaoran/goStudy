@@ -4,10 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"go.uber.org/atomic"
 	"log"
 	"sync"
-	"time"
 )
 
 type (
@@ -16,10 +14,6 @@ type (
 
 		sync.Mutex
 		m map[string]*PoolUnit
-
-		threadMin   atomic.Int32
-		threadMax   atomic.Int32
-		threadCount atomic.Int32
 	}
 )
 
@@ -32,48 +26,17 @@ func NewPoolCnt() *PoolCnt {
 		Bus: make(chan []byte, BUS_LEN),
 		m:   make(map[string]*PoolUnit),
 	}
-	bean.threadMin.Store(1000)
-	bean.threadMax.Store(10000)
-	bean.threadCount.Store(0)
-
 	go bean.loop()
 	return bean
 }
 
 func (r *PoolCnt) loop() {
-	for {
-		r.autoAdd()
-		time.Sleep(time.Second * 1)
-	}
-}
-
-func (r *PoolCnt) autoAdd() {
-	cur := int32(len(r.Bus))
-	count := r.threadCount.Load()
-	//
-	if count < r.threadMin.Load() || (count < r.threadMax.Load() && cur > (count)*5) {
-		for i := 0; i < 100; i++ {
-			r.addOne()
-		}
-	}
-}
-
-func (r *PoolCnt) addOne() {
-	fmt.Println("#####  ", r.threadCount.Load(), "   ####")
-
-	if r.threadCount.Load() >= r.threadMax.Load() {
-		return
-	}
-
-	r.threadCount.Inc()
 	defer func() {
 		if err := recover(); err != nil {
 			log.Println(err)
 		}
-		r.threadCount.Dec()
 	}()
 
-	exit := false
 	for {
 		fmt.Println(" .......loop wait.......")
 		select {
@@ -82,14 +45,7 @@ func (r *PoolCnt) addOne() {
 				if err := r.dispatch(data); err != nil {
 					log.Println(err)
 				}
-				//r.autoAdd()
 			}
-		case <-time.After(time.Second * 60):
-			exit = true
-		}
-
-		if exit {
-			break
 		}
 	}
 }
@@ -130,14 +86,11 @@ func (r *PoolCnt) dispatch(buffer []byte) error {
 	//
 	if obj := r.GetUnit(dst); obj != nil {
 		if s, err := json.Marshal(bean); err != nil {
-			return obj.Cast(s)
+			return obj.Dispatch(s)
 		} else {
 			return err
 		}
 	}
-	//if local not exists key,then brocast to other node
-
-	//save offline
 	return nil
 }
 

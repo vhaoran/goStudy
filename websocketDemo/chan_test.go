@@ -20,6 +20,7 @@ func NewABC() *ABC {
 	bean := &ABC{
 		m: make(map[string]string),
 	}
+
 	return bean
 }
 
