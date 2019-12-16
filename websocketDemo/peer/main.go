@@ -22,12 +22,13 @@ type MsgData struct {
 
 func main() {
 	//id := flag.String("id", "whr", "user id")
-	host := flag.String("host", "192.168.0.99", "host name")
+	host := flag.String("host", "127.0.0.1", "host name")
 	flag.Parse()
 
-	obj := g.NewWaitGroupN(500)
+	h := 50
+	obj := g.NewWaitGroupN(h)
 	t0 := time.Now()
-	h := 500
+
 	for i := 0; i < h; i++ {
 		id := fmt.Sprint(i, "_whr")
 		obj.Call(func() error {
@@ -62,10 +63,10 @@ func send(id, host string) {
 		for {
 			_, msgData, err := conn.ReadMessage()
 			if err != nil {
-				fmt.Printf("conn read err:%s\n", err.Error())
-				return
+				fmt.Printf("*********conn read err:%s\n", err.Error())
+				continue
 			} else {
-				fmt.Println(string(msgData))
+				fmt.Println(time.Now(), "### readOK ###", string(msgData))
 			}
 		}
 
@@ -74,9 +75,10 @@ func send(id, host string) {
 	fmt.Println("conn success", src)
 	t0 := time.Now()
 	i := int64(0)
-	for j := 0; j < 100; j++ {
+	for j := 0; j < 10000; j++ {
+		//id := fmt.Sprint(i%500, "_whr")
 		bean := &MsgData{
-			Dst:  fmt.Sprint(i),
+			Dst:  id,
 			Data: "aaaaaa",
 			Src:  "aaaa",
 		}
@@ -86,6 +88,8 @@ func send(id, host string) {
 		if err != nil {
 			fmt.Printf("send err:%s\n", err.Error())
 			return
+		} else {
+			fmt.Println("send ok:", j)
 		}
 
 		i++

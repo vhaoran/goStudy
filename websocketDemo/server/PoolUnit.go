@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/gorilla/websocket"
 )
 
@@ -23,26 +22,36 @@ func (r *MsgData) Str() string {
 	return fmt.Sprint("dst:", r.Dst, "data:", r.Data)
 }
 
-func NewPoolUnit(bus chan<- []byte) *PoolUnit {
+func NewPoolUnit(bus chan []byte) *PoolUnit {
 	bean := &PoolUnit{
-		out: make(chan []byte, 100),
+		out: make(chan []byte, 10000),
 		bus: bus,
 	}
 	return bean
 }
 
 func (r *PoolUnit) Loop(conn *websocket.Conn, id string) {
-	r.loopDispatch(conn, id)
+	go r.loopDispatch(conn, id)
 	r.loopReceive(conn, id)
 }
 
 func (r *PoolUnit) loopDispatch(conn *websocket.Conn, id string) {
+	fmt.Println(id, "---loopDispatch----")
+
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("loopDispatch err", err)
+		}
+	}()
 	for {
 		select {
 		case data, ok := <-r.out:
 			if ok {
-				if err := conn.WriteMessage(0, []byte(data)); err != nil {
+				if err := conn.WriteMessage(1, data); err != nil {
+					fmt.Println("loopDispatch to peer err ", err)
 					return
+				} else {
+					fmt.Println("loopDispatch to peer ok ")
 				}
 			} else {
 				return
@@ -51,8 +60,9 @@ func (r *PoolUnit) loopDispatch(conn *websocket.Conn, id string) {
 	}
 }
 
-func (r *PoolUnit) Dispatch(data []byte) {
+func (r *PoolUnit) Dispatch(data []byte) error {
 	r.out <- data
+	return nil
 }
 
 func (r *PoolUnit) loopReceive(conn *websocket.Conn, id string) {
@@ -68,7 +78,7 @@ func (r *PoolUnit) loopReceive(conn *websocket.Conn, id string) {
 			fmt.Printf("**********conn read err:%s\n", err.Error())
 			return
 		}
-		// log.Println("unit received from: ", id, "---data->", string(msgData))
+		fmt.Println("unit received from of  ID: ", id, "---data->", string(msgData), "len(bus):", len(r.bus))
 
 		r.bus <- msgData
 	}

@@ -18,7 +18,7 @@ type (
 )
 
 const (
-	BUS_LEN = 1000000
+	BUS_LEN = 2000000
 )
 
 func NewPoolCnt() *PoolCnt {
@@ -38,12 +38,16 @@ func (r *PoolCnt) loop() {
 	}()
 
 	for {
-		fmt.Println(" .......loop wait.......")
+		fmt.Println(" .......loop bus wait.....len(Bus)..", len(r.Bus))
 		select {
 		case data, ok := <-r.Bus:
 			if ok {
+				fmt.Println(" BUS read", string(data), " len:", len(r.Bus))
+
 				if err := r.dispatch(data); err != nil {
-					log.Println(err)
+					fmt.Println(err)
+				} else {
+					fmt.Println("message has leave bus-------")
 				}
 			}
 		}
@@ -59,7 +63,9 @@ func (r *PoolCnt) GetCnt(key string) *PoolUnit {
 	return nil
 }
 
-func (r *PoolCnt) PushUnit(key string, conn *PoolUnit) {
+func (r *PoolCnt) Push(key string, conn *PoolUnit) {
+	fmt.Println("Push,id:", key)
+
 	r.Lock()
 	defer r.Unlock()
 	r.m[key] = conn
@@ -73,6 +79,13 @@ func (r *PoolCnt) Exist(key string) bool {
 }
 
 func (r *PoolCnt) dispatch(buffer []byte) error {
+	fmt.Println("PoolCnt-->dispatch")
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("dispatch err:", err)
+		}
+	}()
+
 	if len(buffer) == 0 {
 		return errors.New("no data to send")
 	}
@@ -82,10 +95,13 @@ func (r *PoolCnt) dispatch(buffer []byte) error {
 		return err
 	}
 	//
+	fmt.Println("PoolCnt-->dispatch,before  11111111")
 	_, dst := r.getSrcDst(bean)
 	//
 	if obj := r.GetUnit(dst); obj != nil {
-		if s, err := json.Marshal(bean); err != nil {
+		fmt.Println("PoolCnt-->dispatch,before  22222")
+		if s, err := json.Marshal(bean); err == nil {
+			fmt.Println("PoolCnt-->dispatch,before  33333")
 			return obj.Dispatch(s)
 		} else {
 			return err

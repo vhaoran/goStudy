@@ -33,8 +33,9 @@ func chat(w http.ResponseWriter, req *http.Request) {
 
 	//-------- -----------------------------
 	l, ok := req.Header["Id"]
-	fmt.Println("------", "result", "-----------")
-	log.Println(l, ok)
+	fmt.Println("------", "header", "--<<<<<<<<<<<<<<<---------")
+	log.Println("header token:", l, ok)
+	log.Println("------>>>>>---------------")
 
 	if !ok || len(l) == 0 {
 		log.Println("not login,ensure pass id in header")
@@ -44,6 +45,6 @@ func chat(w http.ResponseWriter, req *http.Request) {
 
 	//-------------------------------------
 	unit := NewPoolUnit(pool.Bus)
-	pool.PushUnit(id, unit)
-	unit.Loop(conn,id)
+	pool.Push(id, unit)
+	unit.Loop(conn, id)
 }
