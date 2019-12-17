@@ -9,15 +9,19 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"time"
 
 	"goStudy/lib/g"
 )
 
 func Test_c(t *testing.T) {
 	s := "123456"
-	sub := fmt.Sprintf("%c", s[0])
-	fmt.Println(s[0])
-	fmt.Println(sub)
+	t0 := time.Now()
+	for i := 0; i < 1000; i++ {
+		fmt.Println(s[0])
+	}
+
+	fmt.Println(time.Since(t0))
 }
 
 func Test_x_parsetint(t *testing.T) {
