@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"runtime"
 	"sync"
 	"time"
 
@@ -13,9 +14,11 @@ import (
 )
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	
 	host := flag.String("host", "127.0.0.1", "host pos")
 	flag.Parse()
-	
+
 	h := 100
 	var wg sync.WaitGroup
 	wg.Add(1)

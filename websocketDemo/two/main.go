@@ -5,12 +5,15 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 	"time"
 
 	"golang.org/x/net/websocket"
 )
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	http.Handle("/ws", websocket.Handler(chat))
 	if err := http.ListenAndServe(":9999", nil); err != nil {
 		fmt.Println(err)
