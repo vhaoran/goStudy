@@ -16,7 +16,7 @@ type (
 func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 	var err error
 
-	tuuid := fmt.Sprint(time.Now().Unix())
+	tuuid := fmt.Sprint(time.Now().UnixNano())
 
 	if len(buffer) == 0 {
 		t0 := time.Now()
