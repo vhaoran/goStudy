@@ -6,6 +6,8 @@ import (
 	"time"
 
 	"golang.org/x/net/websocket"
+
+	"goStudy/g"
 )
 
 type (
@@ -18,6 +20,7 @@ func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 
 	tuuid := fmt.Sprint(time.Now().UnixNano())
 
+	obj := g.NewWaitGroupN(30)
 	if len(buffer) == 0 {
 		t0 := time.Now()
 		h := 1000000
@@ -26,14 +29,16 @@ func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 			log.Println(s)
 			fmt.Println(s)
 
-			//for {
-			if err = websocket.Message.Send(conn, []byte(s)); err != nil {
-				log.Println("send to client:", err)
-				fmt.Println("send to client:", err)
-
-				break
-			}
+			go func() {
+				//for {
+				if err = websocket.Message.Send(conn, []byte(s)); err != nil {
+					log.Println("send to client:", err)
+					fmt.Println("send to client:", err)
+					//break
+				}
+			}()
 		}
+
 		fmt.Println("total", time.Since(t0), " ", t0)
 		return
 	}

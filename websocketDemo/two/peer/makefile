@@ -1,7 +1,8 @@
 app=p
 ext=.out
 path=./
-platform=$(uname -s)
+
+platform=$(P)
 flag='all=-w -s'
 export GO111MODULE=on
 
