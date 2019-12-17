@@ -14,7 +14,8 @@ import (
 
 func main() {
 	host := flag.String("host", "127.0.0.1", "host pos")
-
+	flag.Parse()
+	
 	h := 100
 	var wg sync.WaitGroup
 	wg.Add(1)
@@ -33,8 +34,11 @@ func call(host string) {
 	origin := fmt.Sprintf("http://%s/", host)
 	server := fmt.Sprintf("ws://%s:9999/ws", host)
 
-	cfg := websocket.Config{
-	}
+	fmt.Println("------", "aaa", "-----------")
+	fmt.Println(origin, server)
+	fmt.Println("------", "aaa", "-----------")
+
+	cfg := new(websocket.Config)
 	if cfg.Location, err = url.ParseRequestURI(server); err != nil {
 		return
 	}
@@ -44,7 +48,7 @@ func call(host string) {
 	cfg.Header = http.Header{"ID": []string{"whr"}}
 	cfg.Version = websocket.ProtocolVersionHybi13
 
-	ws, err := websocket.DialConfig(&cfg)
+	ws, err := websocket.DialConfig(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}

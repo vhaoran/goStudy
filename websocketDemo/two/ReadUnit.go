@@ -15,11 +15,15 @@ type (
 func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 	var err error
 
+	tuuid := fmt.Sprint(time.Now().Unix())
+
 	if len(buffer) == 0 {
 		t0 := time.Now()
 		h := 1000000
 		for i := 0; i < h; i++ {
-			s := fmt.Sprint(i, "----from server!")
+			s := fmt.Sprint(i, "----from server!---tuuid--", tuuid)
+			fmt.Println(s)
+			
 			//for {
 			if err = websocket.Message.Send(conn, []byte(s)); err != nil {
 				fmt.Println("send to client:", err)
