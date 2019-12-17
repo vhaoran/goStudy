@@ -75,7 +75,7 @@ func call(host string) {
 		fmt.Println("total:", time.Since(t0))
 	}()
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 1000; i++ {
 		s := fmt.Sprint("hello,world--", i)
 		if _, err := ws.Write([]byte(s)); err != nil {
 			log.Fatal(err)
