@@ -1,19 +1,37 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	"net/url"
+	"sync"
 	"time"
 
 	"golang.org/x/net/websocket"
 )
 
 func main() {
+	host := flag.String("host", "127.0.0.1", "host pos")
+
+	h := 100
+	var wg sync.WaitGroup
+	wg.Add(1)
+	for i := 0; i < h; i++ {
+		go call(*host)
+	}
+
+	wg.Wait()
+}
+
+func call(host string) {
+	var wg sync.WaitGroup
+	wg.Add(1)
+
 	var err error
-	origin := "http://localhost/"
-	server := "ws://localhost:9999/ws"
+	origin := fmt.Sprintf("http://%s/", host)
+	server := fmt.Sprintf("ws://%s:9999/ws", host)
 
 	cfg := websocket.Config{
 	}
@@ -32,27 +50,35 @@ func main() {
 	}
 
 	go func() {
-		for {
+		h := 1000000
+		t0 := time.Now()
+		for i := 0; i < h; i++ {
 			var msg = make([]byte, 512)
 			var n int
 			if n, err = ws.Read(msg); err != nil {
 				log.Println(err, "*****")
+				wg.Done()
 				break
 			}
-			fmt.Printf("Received: %s.\n", msg[:n])
+			if i >= 1000000-1 {
+				break
+			}
+			fmt.Println(fmt.Sprint(time.Now(), " Received: ", string(msg[:n])))
 		}
+		fmt.Println("total:", time.Since(t0))
 	}()
 
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 10; i++ {
 		s := fmt.Sprint("hello,world--", i)
 		if _, err := ws.Write([]byte(s)); err != nil {
 			log.Fatal(err)
 		}
 
-		time.Sleep(time.Second * 5)
+		time.Sleep(time.Second * 1)
 	}
-	ws.Close()
+
+	//ws.Close()
 	log.Println("closed")
-	time.Sleep(time.Second * 3)
 	log.Println("exited")
+	wg.Wait()
 }

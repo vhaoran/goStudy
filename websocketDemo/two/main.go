@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"golang.org/x/net/websocket"
@@ -20,8 +19,6 @@ func main() {
 }
 
 func chat(ws *websocket.Conn) {
-	var err error
-
 	{
 		h := ws.Request().Header
 		fmt.Println("------", "", "-----------")
@@ -29,6 +26,9 @@ func chat(ws *websocket.Conn) {
 			log.Println(k, v)
 		}
 	}
+
+	obj := new(SendUnit)
+	go obj.Send(ws, nil)
 
 	for {
 		var reply string
@@ -42,16 +42,18 @@ func chat(ws *websocket.Conn) {
 			log.Println("received:", reply)
 		}
 
+		new(SendUnit).Send(ws, []byte(reply))
+
 		//if err = websocket.Message.Receive(ws, &reply); err != nil {
 		//	fmt.Println(err)
 		//	continue
 		//}
 
-		ret := strings.ToUpper(reply) + "-----[l'mfrom server]"
-		fmt.Println(time.Now(), "#### block before Write")
-		if err = websocket.Message.Send(ws, ret); err != nil {
-			fmt.Println("send to client:", err)
-			//continue
-		}
+		//ret := strings.ToUpper(reply) + "-----[l'mfrom server]"
+		//fmt.Println(time.Now(), "#### block before Send")
+		//if err = websocket.Message.Send(ws, ret); err != nil {
+		//	fmt.Println("send to client:", err)
+		//	//continue
+		//}
 	}
 }
