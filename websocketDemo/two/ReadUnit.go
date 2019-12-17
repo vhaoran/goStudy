@@ -24,16 +24,21 @@ func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 		for i := 0; i < h; i++ {
 			s := fmt.Sprint(i, "----from server!---tuuid--", tuuid)
 			log.Println(s)
+			fmt.Println(s)
 
 			//for {
 			if err = websocket.Message.Send(conn, []byte(s)); err != nil {
 				log.Println("send to client:", err)
+				fmt.Println("send to client:", err)
+
 				break
 			}
 		}
 		fmt.Println("total", time.Since(t0), " ", t0)
+		return
+	}
 
-	} else {
+	{
 		if err = websocket.Message.Send(conn, buffer); err != nil {
 			fmt.Println("send to client:", err)
 		} else {
