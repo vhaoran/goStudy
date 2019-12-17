@@ -29,14 +29,16 @@ func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 			log.Println(s)
 			fmt.Println(s)
 
-			go func() {
+			obj.Call(func() error {
 				//for {
 				if err = websocket.Message.Send(conn, []byte(s)); err != nil {
 					log.Println("send to client:", err)
 					fmt.Println("send to client:", err)
 					//break
+					return err
 				}
-			}()
+				return nil
+			})
 		}
 
 		fmt.Println("total", time.Since(t0), " ", t0)
