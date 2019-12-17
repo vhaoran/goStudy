@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"golang.org/x/net/websocket"
@@ -22,11 +23,11 @@ func (r *SendUnit) Send(conn *websocket.Conn, buffer []byte) {
 		h := 1000000
 		for i := 0; i < h; i++ {
 			s := fmt.Sprint(i, "----from server!---tuuid--", tuuid)
-			fmt.Println(s)
-			
+			log.Println(s)
+
 			//for {
 			if err = websocket.Message.Send(conn, []byte(s)); err != nil {
-				fmt.Println("send to client:", err)
+				log.Println("send to client:", err)
 				break
 			}
 		}
