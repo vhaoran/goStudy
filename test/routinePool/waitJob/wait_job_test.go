@@ -8,7 +8,7 @@ import (
 	"github.com/ivpusic/grpool"
 )
 
-func Test_(t *testing.T) {
+func Test_wait_job(t *testing.T) {
 	// number of workers, and size of job queue
 	pool := grpool.NewPool(100, 50)
 	defer pool.Release()

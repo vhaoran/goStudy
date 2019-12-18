@@ -1,8 +1,10 @@
 package jwt
 
 import (
+	"errors"
 	"fmt"
 	"log"
+	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -62,4 +64,68 @@ func Test_jwt_gen(t *testing.T) {
 		//user is an admin
 		fmt.Println("User is an admin")
 	}
+}
+
+func Test_do_jwt(t *testing.T) {
+	secretKey := "abc"
+	s, err := jwtGen(secretKey, int64(100))
+	fmt.Println("------", "", "-----------")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	//
+	uid, err := jwtParse(secretKey, s)
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println("uid", uid)
+	fmt.Println("------", "ok", "-----------")
+}
+
+func jwtGen(secretKey string, uid int64) (string, error) {
+	algorithm := jwt.HmacSha256(secretKey)
+
+	claims := jwt.NewClaim()
+	claims.Set("uid", fmt.Sprint(uid))
+	//claims.SetTime("exp", time.Now().Add(time.Hour*24*365*10))
+
+	token, err := algorithm.Encode(claims)
+	if err != nil {
+		return "", err
+	}
+	return token, nil
+}
+
+func jwtParse(secretKey, token string) (uid int64, err error) {
+	uid, err = 0, nil
+
+	algorithm := jwt.HmacSha256(secretKey)
+	//
+	if err = algorithm.Validate(token); err != nil {
+		return
+	}
+
+	//parse
+	loadedClaims, err := algorithm.Decode(token)
+	if err != nil {
+		return 0, err
+	}
+
+	id, err := loadedClaims.Get("uid")
+	if err != nil {
+		return 0, err
+	}
+
+	s, ok := id.(string)
+	if !ok {
+		log.Println("uid:", uid)
+		return 0, errors.New("错误的uid类型")
+	}
+	if uid, err = strconv.ParseInt(s, 10, 64); err != nil {
+		log.Println("获取jwt时出错,err:", err)
+		return 0, err
+	}
+	return
 }
