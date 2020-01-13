@@ -264,3 +264,7 @@ func Test_env_display(t *testing.T) {
 		log.Println(v)
 	}
 }
+
+func Test_dynamic_param(t *testing.T) {
+
+}

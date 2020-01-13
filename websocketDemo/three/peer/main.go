@@ -20,7 +20,8 @@ func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	allCount.Store(0)
 
-	host := flag.String("host", "127.0.0.1", "host pos")
+	//host := flag.String("host", "127.0.0.1", "host pos")
+	host := flag.String("host", "39.99.169.246", "host pos")
 	flag.Parse()
 
 	h := 100

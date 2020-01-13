@@ -46,6 +46,7 @@ require (
 	github.com/pieterclaerhout/go-waitgroup v1.0.6
 	github.com/pkg/errors v0.8.2-0.20190227000051-27936f6d90f9
 	github.com/pkg/term v0.0.0-20190109203006-aa71e9d9e942 // indirect
+	github.com/prometheus/common v0.4.0
 	github.com/robbert229/jwt v2.0.0+incompatible
 	github.com/robfig/cron v1.1.1-0.20190616124356-61d93e07d1be
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
