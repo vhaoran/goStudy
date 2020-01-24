@@ -19,6 +19,7 @@ require (
 	github.com/go-redis/redis v0.0.0-20190719092155-6bc7daa5b1e8
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/go-xorm/xorm v0.7.5
+	github.com/goburrow/cache v0.1.0
 	github.com/gobwas/httphead v0.0.0-20180130184737-2c6c146eadee // indirect
 	github.com/gobwas/pool v0.2.0 // indirect
 	github.com/gobwas/ws v1.0.2
@@ -26,6 +27,7 @@ require (
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gorilla/websocket v1.4.0
 	github.com/guptarohit/asciigraph v0.4.1
+	github.com/hashicorp/golang-lru v0.5.1
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/ivpusic/grpool v1.0.0
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
@@ -41,8 +43,9 @@ require (
 	github.com/mattn/go-runewidth v0.0.7 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/mojocn/base64Captcha v0.0.0-20190801020520-752b1cd608b2
+	github.com/muesli/cache2go v0.0.0-20191019095710-4098a3aa8c94
 	github.com/panjf2000/ants v1.1.0
-	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
+	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pieterclaerhout/go-waitgroup v1.0.6
 	github.com/pkg/errors v0.8.2-0.20190227000051-27936f6d90f9
 	github.com/pkg/term v0.0.0-20190109203006-aa71e9d9e942 // indirect
