@@ -5,6 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go v0.43.0 // indirect
 	github.com/Luzifer/go-openssl/v3 v3.1.0
+	github.com/OrlovEvgeny/go-mcache v0.0.0-20200121124330-1a8195b34f3a
 	github.com/atcharles/abio v0.0.0-20190722035837-5130f3d95597
 	github.com/atcharles/ginflux v0.1.1-0.20190806152705-b82ca157a1e8
 	github.com/atcharles/wslt v0.0.0-20190502062542-d9d2b568ad73
@@ -28,6 +29,7 @@ require (
 	github.com/gorilla/websocket v1.4.0
 	github.com/guptarohit/asciigraph v0.4.1
 	github.com/hashicorp/golang-lru v0.5.1
+	github.com/imdario/mergo v0.3.8
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/ivpusic/grpool v1.0.0
 	github.com/jackc/pgx v3.5.0+incompatible // indirect
