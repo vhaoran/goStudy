@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	cloud.google.com/go v0.43.0 // indirect
+	fyne.io/fyne v1.2.1
 	github.com/Luzifer/go-openssl/v3 v3.1.0
 	github.com/OrlovEvgeny/go-mcache v0.0.0-20200121124330-1a8195b34f3a
 	github.com/atcharles/abio v0.0.0-20190722035837-5130f3d95597
@@ -13,6 +14,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dchest/captcha v0.0.0-20170622155422-6a29415a8364
 	github.com/denisenkom/go-mssqldb v0.0.0-20190724012636-11b2859924c1 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/eclipse/paho.mqtt.golang v1.2.0
 	github.com/esimov/caire v1.2.3-0.20190708153325-c5821f66daef
 	github.com/go-playground/locales v0.12.1
@@ -26,6 +28,7 @@ require (
 	github.com/gobwas/ws v1.0.2
 	github.com/golang/protobuf v1.3.2
 	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/gorilla/mux v1.6.2
 	github.com/gorilla/websocket v1.4.0
 	github.com/guptarohit/asciigraph v0.4.1
 	github.com/hashicorp/golang-lru v0.5.1

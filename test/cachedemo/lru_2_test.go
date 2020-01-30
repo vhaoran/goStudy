@@ -3,6 +3,7 @@ package cachedemo
 import (
 	"fmt"
 	"github.com/goburrow/cache"
+	"log"
 	"math/rand"
 	"testing"
 	"time"
@@ -65,4 +66,29 @@ func Test_bench_lru_guava(t *testing.T) {
 		l.Get(key)
 	}
 	fmt.Println("", time.Since(t0))
+}
+
+func Test_rand_n(t *testing.T) {
+	for i := 0; i < 100; i++ {
+		log.Println("----------", rand.Intn(50000), "------------")
+		log.Println("----####-", RandN6(), "------------")
+	}
+}
+
+func RandN6() int32 {
+	//rand.Seed(123456789)
+REDO:
+	j := rand.Int31n(123456789)
+	for j < 100000 {
+		j += rand.Int31n(123456789)
+	}
+	//
+	if j > 100000 {
+		j = j % 1000000
+	}
+	if j < 100000 {
+		goto REDO
+	}
+
+	return j
 }

@@ -47,3 +47,20 @@ func Test_write_image_image_validate(t *testing.T) {
 	}
 
 }
+
+func Test_captcha_New(t *testing.T) {
+	store := NewMyStore()
+	cap.SetCustomStore(store)
+
+	id := cap.New()
+	log.Println("----------", "id", id, "------------")
+
+	buffer := store.Get(id,false)
+
+
+	for i := 0; i < 10; i++ {
+		a := cap.NewLen(4)
+		log.Println("----------", "a", a, "------------")
+	}
+	cap.NewImage()
+}
