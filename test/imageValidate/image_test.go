@@ -62,5 +62,5 @@ func Test_captcha_New(t *testing.T) {
 		a := cap.NewLen(4)
 		log.Println("----------", "a", a, "------------")
 	}
-	cap.NewImage()
+
 }
