@@ -20,7 +20,7 @@ require (
 	github.com/go-playground/locales v0.12.1
 	github.com/go-playground/universal-translator v0.16.0
 	github.com/go-redis/redis v0.0.0-20190719092155-6bc7daa5b1e8
-	github.com/go-sql-driver/mysql v1.4.1
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/go-xorm/xorm v0.7.5
 	github.com/goburrow/cache v0.1.0
 	github.com/gobwas/httphead v0.0.0-20180130184737-2c6c146eadee // indirect
@@ -49,10 +49,11 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/mojocn/base64Captcha v0.0.0-20190801020520-752b1cd608b2
 	github.com/muesli/cache2go v0.0.0-20191019095710-4098a3aa8c94
+	github.com/olivere/elastic/v7 v7.0.15
 	github.com/panjf2000/ants v1.1.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pieterclaerhout/go-waitgroup v1.0.6
-	github.com/pkg/errors v0.8.2-0.20190227000051-27936f6d90f9
+	github.com/pkg/errors v0.9.1
 	github.com/pkg/term v0.0.0-20190109203006-aa71e9d9e942 // indirect
 	github.com/prometheus/common v0.4.0
 	github.com/robbert229/jwt v2.0.0+incompatible
@@ -62,7 +63,7 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
 	github.com/starjiang/elog v1.0.4
-	github.com/stretchr/testify v1.4.0
+	github.com/stretchr/testify v1.5.1
 	github.com/tidwall/gjson v1.3.2-0.20190712134638-dea71f728d5e
 	github.com/ttacon/chalk v0.0.0-20160626202418-22c06c80ed31
 	github.com/unknwon/com v0.0.0-20190804042917-757f69c95f3e
@@ -72,7 +73,7 @@ require (
 	go.mongodb.org/mongo-driver v1.1.3
 	go.uber.org/atomic v1.4.0
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
+	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
 	golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e // indirect
 	google.golang.org/genproto v0.0.0-20190716160619-c506a9f90610
 	google.golang.org/grpc v1.21.1
