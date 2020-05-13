@@ -95,11 +95,14 @@ func Test_mut_add(t *testing.T) {
 	pool.WaitAll()
 }
 
+func Test_get(t *testing.T) {
+	gets()
+}
+
 /*下面是简单的CURD*/
 
 //创建
 func create() {
-
 	//使用结构体
 	e1 := Employee{"Jane", "Smith", 32, "I like to collect rock albums", []string{"music"}}
 	put1, err := client.Index().
