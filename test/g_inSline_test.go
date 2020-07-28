@@ -24,5 +24,4 @@ func Test_a(t *testing.T) {
 	m["a"] = 1
 	m["a"] = 1
 	m["a"] = 1
-
 }

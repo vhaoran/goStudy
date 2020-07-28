@@ -6,13 +6,15 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math"
+	"strings"
 	"testing"
 	"time"
 )
 
 type TestHash struct {
 	A int    `json:"a,omitempty"`
-	B string `json:"b,omitempty"`
+	B string `json:"x_b,omitempty"`
 }
 
 func Test_unmarshal(t *testing.T) {
@@ -91,4 +93,74 @@ func Test_slice_revers(t *testing.T) {
 		l[i], l[len(l)-1-i] = l[len(l)-1-i], l[i]
 	}
 	fmt.Println(l)
+}
+func Test_aaa(t *testing.T) {
+	a := [...]int{2: 5, 4: 8}
+	fmt.Println("-----------------")
+	fmt.Println(a)
+}
+
+func Test_split(t *testing.T) {
+	s := "中国人民解放军"
+	l := strings.Split(s, "")
+	for _, v := range l {
+		fmt.Println("->", v)
+	}
+
+}
+func Test_max_int64(t *testing.T) {
+	f := math.Pow(2, 64)
+	fmt.Println("-----------------")
+	fmt.Println(f)
+}
+
+func Test_slice_add(t *testing.T) {
+	l := []int{1, 2, 3, 4, 5}
+	l = append(l, l...)
+	fmt.Println("-----------------")
+	fmt.Println(l)
+}
+
+func Test_slice_vs_map(t *testing.T) {
+	h := 5
+	l := make([]int, h)
+	for i := 0; i < h; i++ {
+		l = append(l, i)
+	}
+
+	//
+	c := 0
+	t0 := time.Now()
+	for j := 0; j < 10*10000; j++ {
+		dst := j % h
+		for _, v := range l {
+			if v == dst {
+				c++
+				break
+			}
+		}
+	}
+	fmt.Println("-----------------")
+	fmt.Println(time.Since(t0).Milliseconds())
+}
+
+func Test_slice_vs_map_x(t *testing.T) {
+	h := 500
+	m := make(map[int]int)
+	for i := 0; i < h; i++ {
+		m[i] = i
+	}
+
+	//
+	c := 0
+	t0 := time.Now()
+	for j := 0; j < 10*10000; j++ {
+		dst := j % h
+		_, ok := m[dst]
+		if ok {
+			c++
+		}
+	}
+	fmt.Println("-----------------")
+	fmt.Println(time.Since(t0).Milliseconds())
 }
