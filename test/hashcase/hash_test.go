@@ -164,3 +164,10 @@ func Test_slice_vs_map_x(t *testing.T) {
 	fmt.Println("-----------------")
 	fmt.Println(time.Since(t0).Milliseconds())
 }
+
+func Test_float_format(t *testing.T) {
+	f := 1.2345678
+	s := fmt.Sprintf("%0.2f", f)
+	fmt.Println(s)
+}
+
