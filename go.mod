@@ -10,6 +10,7 @@ require (
 	github.com/atcharles/abio v0.0.0-20190722035837-5130f3d95597
 	github.com/atcharles/ginflux v0.1.1-0.20190806152705-b82ca157a1e8
 	github.com/atcharles/wslt v0.0.0-20190502062542-d9d2b568ad73
+	github.com/bluele/gcache v0.0.0-20190518031135-bc40bd653833
 	github.com/c-bata/go-prompt v0.2.3
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dchest/captcha v0.0.0-20170622155422-6a29415a8364
@@ -32,6 +33,7 @@ require (
 	github.com/gorilla/websocket v1.4.0
 	github.com/guptarohit/asciigraph v0.4.1
 	github.com/hashicorp/golang-lru v0.5.1
+	github.com/huandu/skiplist v1.1.0
 	github.com/imdario/mergo v0.3.8
 	github.com/influxdata/influxdb1-client v0.0.0-20190402204710-8ff2fc3824fc
 	github.com/ivpusic/grpool v1.0.0
@@ -59,6 +61,7 @@ require (
 	github.com/robbert229/jwt v2.0.0+incompatible
 	github.com/robfig/cron v1.1.1-0.20190616124356-61d93e07d1be
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
+	github.com/sean-public/fast-skiplist v0.0.0-20200308194023-d7f7945b944e
 	github.com/sherifabdlnaby/gpool v1.1.0
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
