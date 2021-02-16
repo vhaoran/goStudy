@@ -50,6 +50,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.7 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/mojocn/base64Captcha v0.0.0-20190801020520-752b1cd608b2
+	github.com/monaco-io/request v1.0.9
 	github.com/muesli/cache2go v0.0.0-20191019095710-4098a3aa8c94
 	github.com/olivere/elastic/v7 v7.0.15
 	github.com/panjf2000/ants v1.1.0
@@ -76,8 +77,7 @@ require (
 	go.mongodb.org/mongo-driver v1.1.3
 	go.uber.org/atomic v1.4.0
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
-	golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e // indirect
+	golang.org/x/net v0.0.0-20210119194325-5f4716e94777
 	google.golang.org/genproto v0.0.0-20190716160619-c506a9f90610
 	google.golang.org/grpc v1.21.1
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
